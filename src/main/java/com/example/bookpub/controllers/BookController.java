@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/books")
 public class BookController {
 
-  @Autowired private final BookRepository bookRepository;
+  @Autowired
+  private final BookRepository bookRepository;
 
   public BookController(BookRepository bookRepository) {
     this.bookRepository = bookRepository;
@@ -24,7 +25,7 @@ public class BookController {
   }
 
   @GetMapping("/{isbn}")
-    public Book getBook(@PathVariable String isbn){
+  public Book getBook(@PathVariable String isbn) {
     return bookRepository.findBookByIsbn(isbn);
-}
+  }
 }
