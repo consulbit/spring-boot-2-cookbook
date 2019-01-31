@@ -7,6 +7,7 @@ import com.example.bookpub.model.Isbn;
 import com.example.bookpub.repository.BookRepository;
 import java.util.List;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,10 @@ public class BookController {
     return book.getReviewers();
   }
 
+  @GetMapping("/session")
+  public String getSession(HttpServletRequest request) {
+    return request.getSession().getId();
+  }
 
   @InitBinder
   public void initBinder(WebDataBinder binder) {

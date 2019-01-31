@@ -2,9 +2,12 @@ package com.example.bookpub.config;
 
 import com.example.bookpub.formatters.BookFormatter;
 import com.example.bookpub.repository.BookRepository;
+import java.time.Duration;
 import java.util.List;
 import org.apache.catalina.filters.RemoteIpFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
@@ -35,6 +38,14 @@ public class WebConfiguration implements WebMvcConfigurer {
   @Bean
   public ByteArrayHttpMessageConverter byteArrayHttpMessageConverter() {
     return new ByteArrayHttpMessageConverter();
+  }
+
+  @Bean
+  public ServletWebServerFactory servletContainer() {
+    TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
+    tomcat.getSession().setTimeout(Duration.ofMinutes(1));
+
+    return tomcat;
   }
 
   @Override
