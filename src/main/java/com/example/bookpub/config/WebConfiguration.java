@@ -51,6 +51,12 @@ public class WebConfiguration implements WebMvcConfigurer {
     registry.addFormatter(new BookFormatter(bookRepository));
   }
 
+  @Override
+  public void configurePathMatch(PathMatchConfigurer configurer) {
+    configurer.setUseSuffixPatternMatch(false)
+        .setUseTrailingSlashMatch(true);
+  }
+
   //  @Override
 //  public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
 //    converters.clear();
