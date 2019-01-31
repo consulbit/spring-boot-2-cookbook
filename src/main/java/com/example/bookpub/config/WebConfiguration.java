@@ -4,7 +4,7 @@ import com.example.bookpub.formatters.BookFormatter;
 import com.example.bookpub.repository.BookRepository;
 import java.time.Duration;
 import java.util.List;
-import org.apache.catalina.filters.RemoteIpFilter;
+//import org.apache.catalina.filters.RemoteIpFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
@@ -25,10 +25,10 @@ public class WebConfiguration implements WebMvcConfigurer {
   @Autowired
   private BookRepository bookRepository;
 
-  @Bean
-  public RemoteIpFilter remoteIpFilter() {
-    return new RemoteIpFilter();
-  }
+//  @Bean
+//  public RemoteIpFilter remoteIpFilter() {
+//    return new RemoteIpFilter();
+//  }
 
   @Bean
   public LocaleChangeInterceptor localeChangeInterceptor() {
@@ -40,13 +40,13 @@ public class WebConfiguration implements WebMvcConfigurer {
     return new ByteArrayHttpMessageConverter();
   }
 
-  @Bean
-  public ServletWebServerFactory servletContainer() {
-    TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
-    tomcat.getSession().setTimeout(Duration.ofMinutes(1));
-
-    return tomcat;
-  }
+//  @Bean
+//  public ServletWebServerFactory servletContainer() {
+//    TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
+//    tomcat.getSession().setTimeout(Duration.ofMinutes(1));
+//
+//    return tomcat;
+//  }
 
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
