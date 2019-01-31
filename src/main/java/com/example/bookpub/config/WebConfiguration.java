@@ -12,6 +12,7 @@ import org.springframework.http.converter.ByteArrayHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
@@ -55,6 +56,12 @@ public class WebConfiguration implements WebMvcConfigurer {
   public void configurePathMatch(PathMatchConfigurer configurer) {
     configurer.setUseSuffixPatternMatch(false)
         .setUseTrailingSlashMatch(true);
+  }
+
+  @Override
+  public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    registry.addResourceHandler("/internal/**")
+        .addResourceLocations("classpath:/");
   }
 
   //  @Override
