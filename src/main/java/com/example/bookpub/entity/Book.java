@@ -10,7 +10,6 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Book {
 
-  @ManyToOne Publisher publisher;
   @Id
   @GeneratedValue
   private Long id;
@@ -21,6 +20,7 @@ public class Book {
   private Author author;
   @ManyToMany
   private List<Reviewer> reviewers;
+  @ManyToOne Publisher publisher;
 
   protected Book() {}
 
@@ -29,20 +29,6 @@ public class Book {
     this.title = title;
     this.author = author;
     this.publisher = publisher;
-  }
-
-  @Override
-  public String toString() {
-    final StringBuilder sb = new StringBuilder("Book{");
-    sb.append("id=").append(id);
-    sb.append(", isbn='").append(isbn).append('\'');
-    sb.append(", title='").append(title).append('\'');
-    sb.append(", description='").append(description).append('\'');
-    sb.append(", author=").append(author);
-    sb.append(", publisher=").append(publisher);
-    sb.append(", reviewers=").append(reviewers);
-    sb.append('}');
-    return sb.toString();
   }
 
   public Long getId() {
