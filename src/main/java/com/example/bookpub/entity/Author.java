@@ -1,5 +1,7 @@
 package com.example.bookpub.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,8 +16,8 @@ public class Author {
   private String firstName;
   private String lastName;
 
-  @OneToMany(mappedBy = "author")
-  private List<Book> books;
+//  @OneToMany(mappedBy = "author")
+//  private List<Book> books;
 
   protected Author() {};
 
@@ -48,11 +50,11 @@ public class Author {
     this.lastName = lastName;
   }
 
-  public List<Book> getBooks() {
-    return books;
-  }
-
-  public void setBooks(List<Book> books) {
-    this.books = books;
-  }
+//  public List<Book> getBooks() {
+//    return books;
+//  }
+//
+//  public void setBooks(List<Book> books) {
+//    this.books = books;
+//  }
 }

@@ -43,7 +43,7 @@ public class WebConfiguration implements WebMvcConfigurer {
     TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
     tomcat.getSession().setTimeout(Duration.ofMinutes(1));
 
-    tomcat.addAdditionalTomcatConnectors(createSslConnector(properties));
+//    tomcat.addAdditionalTomcatConnectors(createSslConnector(properties));
 
     return tomcat;
   }

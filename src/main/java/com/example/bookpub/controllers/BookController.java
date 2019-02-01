@@ -24,7 +24,7 @@ import org.springframework.web.method.HandlerMethod;
 public class BookController {
 
   private static final Log log = LogFactory.getLog(HandlerMethod.class.getClass());
-  @Autowired
+
   private final BookRepository bookRepository;
 
   public BookController(BookRepository bookRepository) {

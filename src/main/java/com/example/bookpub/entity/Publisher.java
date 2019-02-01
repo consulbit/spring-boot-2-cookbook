@@ -1,5 +1,6 @@
 package com.example.bookpub.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,8 +15,8 @@ public class Publisher {
   private Long id;
   private String name;
 
-  @OneToMany(mappedBy = "publisher")
-  private List<Book> books;
+//  @OneToMany(mappedBy = "publisher")
+//  private List<Book> books;
 
   protected Publisher() {}
 
@@ -39,11 +40,11 @@ public class Publisher {
     this.name = name;
   }
 
-  public List<Book> getBooks() {
-    return books;
-  }
-
-  public void setBooks(List<Book> books) {
-    this.books = books;
-  }
+//  public List<Book> getBooks() {
+//    return books;
+//  }
+//
+//  public void setBooks(List<Book> books) {
+//    this.books = books;
+//  }
 }

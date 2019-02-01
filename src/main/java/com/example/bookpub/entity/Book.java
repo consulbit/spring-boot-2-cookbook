@@ -1,5 +1,7 @@
 package com.example.bookpub.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
